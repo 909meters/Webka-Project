@@ -1,0 +1,33 @@
+<div class="first" *ngIf="!logged">
+  <div class="form">
+    <div class="input">
+      <input type="text" placeholder="Phone number, username, or email" class="in" [(ngModel)]="username">
+    </div>
+    <div class="input">
+      <input type="password" placeholder="Password" class="in" [(ngModel)]="password">
+    </div>
+    <button  (click)="login()">Login</button>
+  </div>
+  <div class="or">
+    <div class="forgot">
+      <a href="#">Forgot password?</a>
+    </div>
+  </div>
+</div>
+<div class="signup" *ngIf="!logged">
+  <p>Don't have an account? <a [routerLink] = "['/register']">Sign up</a></p>
+</div>
+
+
+<!-- 
+<div *ngIf="!logged">
+  <h1>Login form</h1>
+  <p>Username: <input type="text" [(ngModel)]="username"></p>
+  <p>Password: <input type="text" [(ngModel)]="password"></p>
+  <button (click)="login()">Login</button>
+</div>  -->
+
+<div *ngIf="logged">
+  <router-outlet></router-outlet>
+  <button (click)="logout()" class="logout">Logout</button>
+</div>
